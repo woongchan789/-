@@ -45,7 +45,7 @@ ensemble을 진행할 때는 WBF(Weighted Box Fusion)방식으로 ensemble을 �
 ![image](https://user-images.githubusercontent.com/75806377/217166928-c68e8471-64f7-48e3-92a7-32c278dea5cd.png)
 ![image](https://user-images.githubusercontent.com/75806377/217166980-8dba67f8-44d2-464c-ad3c-ebaf99ee2b90.png)
 
-#### Applicatoin prototyping
+Applicatoin prototyping
 ---
 <p align="center"><img src="https://user-images.githubusercontent.com/75806377/216810773-fa0e1932-9fcb-4e7d-88a0-4da225a6aefe.gif" height="400px" width="250px"></p>  
 
