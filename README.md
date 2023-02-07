@@ -12,8 +12,6 @@ Last modified: 2023.02.07
 Background
 ---
 소장의 경우 위와 대장 사이에 위치하여 소장 검사에 많은 어려움이 존재합니다.    
-소장은 비교적 가늘고 길이가 6~7m에 달할 만큼 길어 내시경이 닿지 않아 속을 직접 들여다 볼 방법이 없었던  
-일명 '암흑의 장기'라고 불릴만큼 소장 내 병변을 검출하기가 어려웠습니다.  
 하지만 캡슐내시경이 개발이 되면서 소장의 병변을 사전에 검출하여 사전치료 및 검사가 가능해졌는데요.  
 캡슐내시경이 전송한 소장의 사진을 통해 소장 내 궤양, 림프종 같은 병변을 사전에 검출하여
 이제는 대장내시경과 같이 캡슐내시경 검사가 흔한 검사 방법으로 많이 사용되고 있습니다.  
@@ -27,33 +25,9 @@ COVID-19로 인하여 재택 안에서 모든 것들을 수행할 수 있는 서
 '캡슐내시경 검사도 집에서 하면 좋지 않을까?'라는 아이디어를 가지고 develop 해보았습니다.
 
 Service Flow
----
+--- 
 
-![image](https://user-images.githubusercontent.com/75806377/217163689-b3ad50ba-721e-4983-bf34-92a29f163972.png)  
-
-'소장님'은 총 3일차의 프로세스로 구성되어있으며 내원 및 금식 > 캡슐내시경 복용 > 사용기기 반납 의 순서입니다.  
-
-![image](https://user-images.githubusercontent.com/75806377/217163965-776d5a0a-4827-4117-969c-d9a7252bb58e.png)
-
-간략하게 설명드리자면  
-
-0. 유의사항 안내 
-캡슐내시경 검사에 앞서 유의사항을 설명한 후 이상증상 발생시 즉시 병원에 내원할 것을 안내합니다.
-
-1. 서비스 1일차  
-병원에 내원하여 캡슐내시경, 이미지 저장 장치 등을 포함한 준비물을 수령합니다.  
-준비물을 수령하였다면 당일 금식 및 주의 사항을 안내합니다.
-
-2. 서비스 2일차  
-본격적으로 캡슐내시경 검사가 시작됩니다.  
-이미지 저장 장치를 복부에 장착한 후 캡슐내시경을 복용합니다.  
-시간 단위로 섭취가 가능한 음식에 대한 안내는 팝업 알림의 형태로 안내되며  
-검사 종료 후 Object detection model을 토대로 검사가 시작됩니다.
-Object detection(Yolov5, mmdetection)
-
-3. 서비스 3일차  
-검사 종료 후 발생될 수 있는 이상증상에 대한 설명과 복용한 캡슐내시경에 대한 후처리 등을  
-안내한 후 서비스가 종료됩니다.  
+<p align="center"><img src="https://user-images.githubusercontent.com/75806377/217163965-776d5a0a-4827-4117-969c-d9a7252bb58e.png" height="500px" width="1000px"></p>
 
 Object detection
 ---
@@ -62,18 +36,22 @@ Object detection
 본 프로젝트에서는 object detection model 중 yolov5와 mmdetection 그리고 cbnet을 활용하였으며  
 다양한 실험을 통해 정확도가 높았던 model들을 ensemble하여 최종 모델로 채택하였습니다.  
 ensemble을 진행할 때는 WBF(Weighted Box Fusion)방식으로 ensemble을 진행하였습니다.  
+</br>
+<p align="center"><img src="https://user-images.githubusercontent.com/75806377/217166025-dd8779c9-6f77-437c-85e7-8406367c4240.png" height="800px" width="1000px"></p>
 
-#### Yolov5
+#### Accuracy(box_loss, obj_loss, cls_loss)
 ---
-![image](https://user-images.githubusercontent.com/75806377/217161826-8d8b7b67-b7b7-48cc-991c-d4ebe47bde96.png)
+![image](https://user-images.githubusercontent.com/75806377/217166864-3f7ff8f1-bdb4-4417-a236-d5a2f3de895f.png)
+![image](https://user-images.githubusercontent.com/75806377/217166928-c68e8471-64f7-48e3-92a7-32c278dea5cd.png)
+![image](https://user-images.githubusercontent.com/75806377/217166980-8dba67f8-44d2-464c-ad3c-ebaf99ee2b90.png)
+
+#### Applicatoin prototyping
+---
+<p align="center"><img src="https://user-images.githubusercontent.com/75806377/216810773-fa0e1932-9fcb-4e7d-88a0-4da225a6aefe.gif" height="400px" width="250px"></p>  
+
+![image](https://user-images.githubusercontent.com/75806377/217167648-2a8a0ef4-c867-42dc-99ed-f3609350c190.png)
+![image](https://user-images.githubusercontent.com/75806377/217167784-6296120b-f661-4b73-ad53-54fa431a5e46.png)
+![image](https://user-images.githubusercontent.com/75806377/217167825-14c41f56-0b47-4314-8b0d-7ec3189e2185.png)
 
 
-
-
-
-
-
-
-
-<p align="right"><img src="https://user-images.githubusercontent.com/75806377/216810773-fa0e1932-9fcb-4e7d-88a0-4da225a6aefe.gif"></p>  
 
